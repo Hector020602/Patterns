@@ -18,7 +18,11 @@ public class PrintPatterns {
         System.out.println();
         printPatternI(7);
         System.out.println();
-        printPatternJ(11);
+        printPatternJ(6);
+        System.out.println();
+        printPatternK(6);
+        System.out.println();
+        printPatternL(11);
         System.out.println();
     }
 
@@ -133,15 +137,51 @@ public class PrintPatterns {
         }
     }
 
-    private static void printPatternJ(int size) {
+    public static void printPatternJ(int size) {
+        int max = (size * 2) - 1;
         for (int i = 1; i <= size; i++) {
-            for (int j = 1; j <= size; j++) {
-                 {
-
+            for (int j = 1; j <= max; j++) {
+                if (j >= i && j + i <= max + 1) {
+                    System.out.print("# ");
+                } else {
+                    System.out.print("  ");
                 }
             }
+            System.out.println("");
         }
+    }
 
+    public static void printPatternK(int size) {
+        int max = (size * 2) - 1;
+        for (int i = size; i >= 1; i--) {
+            for (int j = 1; j <= max; j++) {
+                if (j < i || j + i > max + 1) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print("# ");
+                }
+            }
+            System.out.println("");
+        }
+        System.out.println("");
+    }
+
+    public static void printPatternL(int size) {
+        int max = (size * 2) - 1;
+        for (int i = 0; i < max; i++) {
+            for (int j = 0; j < max; j++) {
+                if ((j < size - i - 1 || j > size + i - 1)
+                        || (i > size - 1 && (i - size >= j || j + i >= max + size - 1))) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print("# ");
+                }
+            }
+            System.out.println("");
+        }
     }
 }
+
+
+
 
